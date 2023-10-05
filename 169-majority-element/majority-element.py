@@ -7,9 +7,14 @@ class Solution:
         #     if hashMap[i] > len(nums)//2:
         #         return i
 
-        res,count = 0,0
-        for i in nums:
-            if count == 0:
-                res = i
-            count+= 1 if i == res else -1
-        return res
+        # res,count = 0,0
+        # for i in nums:
+        #     if count == 0:
+        #         res = i
+        #     count+= 1 if i == res else -1
+        # return res
+        major = len(nums)/2
+
+        for num in set(nums):
+            if nums.count(num) > major:
+                return num
