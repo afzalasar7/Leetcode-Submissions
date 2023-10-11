@@ -21,9 +21,8 @@ class Solution:
         if n==0 or n == -abs(n):
             return False
         while n > 1:
-            if n%2==0:
-                n = n/2
-            elif n%2 != 0:
+            if n%2 != 0:
                 return False
+            n = n/2
         return True   
             
