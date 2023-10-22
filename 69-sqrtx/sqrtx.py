@@ -4,7 +4,7 @@ class Solution:
         # for i in range(5000000):
         #     if i*i > x:
         #         return i-1
-        start = 1
+        start = 0
         end = x
         ans = 0
         if x<2:
