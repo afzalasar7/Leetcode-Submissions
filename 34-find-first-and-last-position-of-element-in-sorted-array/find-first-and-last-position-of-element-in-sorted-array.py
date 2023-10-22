@@ -1,32 +1,23 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
-        first=-1
-        last =-1
-        start = 0
-        end = len(nums)-1
-        
-        while start <= end:
-            mid = start +((end-start)//2)
-            if target == nums[mid]:
-                first =mid
-                end=mid-1
-            elif nums[mid]> target:
-                end = mid-1
-            elif nums[mid] < target:
-                start = mid+1
+        left = self.binSearch(nums, target, True)
+        right = self.binSearch(nums, target, False)
+        return [left, right]
 
-        start = 0
-        end = len(nums)-1
-        
-        while start <= end:
-            mid = start +((end-start)//2)
-            if target == nums[mid]:
-                last =mid
-                start=mid+1
-            elif nums[mid]> target:
-                end = mid-1
-            elif nums[mid] < target:
-                start = mid+1
-        return [first,last]
-        
-        
+    # leftBias=[True/False], if false, res is rightBiased
+    def binSearch(self, nums, target, leftBias):
+        l, r = 0, len(nums) - 1
+        i = -1
+        while l <= r:
+            m = (l + r) // 2
+            if target > nums[m]:
+                l = m + 1
+            elif target < nums[m]:
+                r = m - 1
+            else:
+                i = m
+                if leftBias:
+                    r = m - 1
+                else:
+                    l = m + 1
+        return i
