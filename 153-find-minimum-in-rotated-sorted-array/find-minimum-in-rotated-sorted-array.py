@@ -7,7 +7,7 @@ class Solution:
             mid = start + (end-start)//2
             if nums[mid] >= nums[0]:
                 start = mid+1
-            elif nums[mid] < nums[0]:
+            else:
                 res = nums[mid]
                 end = mid-1
         return res
