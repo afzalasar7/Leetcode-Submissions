@@ -1,5 +1,6 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
+        #return min(nums)
         # end = len(nums)-1
         # start =0
         
@@ -11,4 +12,5 @@ class Solution:
         #         end = mid -1
         #     else:                
         #         start = mid+1
-        return min(nums)
+        nums.sort()
+        return nums[0]
