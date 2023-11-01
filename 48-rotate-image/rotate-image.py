@@ -8,11 +8,12 @@ class Solution:
                 matrix[i][j], matrix[j][i] = matrix[j][i],matrix[i][j]
 
         for i in range(len(matrix)):
-            l,r=0,len(matrix)-1
-            while l<=r:
-                matrix[i][r],matrix[i][l] = matrix[i][l],matrix[i][r]
-                l+=1
-                r-=1
+            # l,r=0,len(matrix)-1
+            # while l<=r:
+            #     matrix[i][r],matrix[i][l] = matrix[i][l],matrix[i][r]
+            #     l+=1
+            #     r-=1
+            matrix[i] = matrix[i][::-1]
 
 
         
