@@ -1,11 +1,19 @@
 class Solution:
     def bitwiseComplement(self, n: int) -> int:
-        ans, mul =0,1
+        #generate a new number
         if n == 0:
             return 1
-        while n :
-            ans += (n%2 ^ 1) * mul
-            n = n //2
-            mul = mul*2
-        return ans
-            
+        m = n
+        mask = 0
+        while (m!=0):
+            #generate a mask
+            mask = (mask << 1) | 1
+            m = m >> 1
+        answer = (~n) & mask
+        
+        return answer
+        
+        
+
+        
+        
