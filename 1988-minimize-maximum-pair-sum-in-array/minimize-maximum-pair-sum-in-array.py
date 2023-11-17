@@ -1,11 +1,15 @@
 class Solution:
-    def minPairSum(self, nums):
-        result = 0
+    def minPairSum(self, nums: List[int]) -> int:
+
+        lst = []
         nums.sort()
-        while nums:
-            max_num = nums.pop(-1)
-            min_num = nums.pop(0)
-            result = max(result, max_num + min_num)
-        return result
+
+        ptr1 = 0
+        ptr2 = len(nums) - 1
+        while ptr1 < ptr2:
+            lst.append(nums[ptr1]+nums[ptr2])
+            ptr1 += 1
+            ptr2 -= 1
         
-        
+        return max(lst)
+
