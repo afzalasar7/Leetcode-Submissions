@@ -1,3 +1,14 @@
 class Solution:
     def reductionOperations(self, nums: List[int]) -> int:
-        return sum([i*cnt for i, (num, cnt) in enumerate(sorted(Counter(nums).items()))])
+        nums.sort()
+        res = 0
+        curr = nums[0]
+        add = 0
+        for num in nums:
+            if num != curr:
+                add+=1
+                curr= num
+            res+=add
+        
+        return res
+        
