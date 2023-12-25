@@ -6,3 +6,8 @@ class Solution:
         for i in range(k):
             nums.insert(0,nums[-1])
             nums.pop()
+
+        # arr = nums[len(nums):k:-1]
+        # for i in range(k):
+        #     nums.pop()
+        # nums= arr+nums
