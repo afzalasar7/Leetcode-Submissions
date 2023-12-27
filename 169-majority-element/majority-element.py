@@ -13,6 +13,8 @@ class Solution:
     #     for i, v in hash.items():
     #         if v>major:
     #             return i
+        
+    #tc = O(n), sc = O(1)
         cnt = 0
         major_element=None
         for i in nums:
