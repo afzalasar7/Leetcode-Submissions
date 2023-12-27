@@ -7,3 +7,4 @@ class Solution:
         for i, v in hash.items():
             if v>major:
                 return i
+        
