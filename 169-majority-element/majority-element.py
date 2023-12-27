@@ -5,7 +5,11 @@ class Solution:
         hash = {}
 
         for i in nums:
-            hash[i] = hash.get(i, 0) +1
+            #hash[i] = hash.get(i, 0) +1
+            if i in hash:
+                hash[i] +=1
+            else:
+                hash[i] =1
 
 
         
