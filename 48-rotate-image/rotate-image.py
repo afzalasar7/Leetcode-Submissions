@@ -13,7 +13,8 @@ class Solution:
             #     matrix[i][r],matrix[i][l] = matrix[i][l],matrix[i][r]
             #     l+=1
             #     r-=1
-            matrix[i] = matrix[i][::-1]
+            #matrix[i] = matrix[i][::-1]
+            matrix[i].reverse()
 
 
         
