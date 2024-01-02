@@ -1,19 +1,37 @@
-class Solution:
-    def generateRow(self, row):
-        ans = 1
-        ansRow = [1] #inserting the 1st element
+# class Solution:
+#     def generateRow(self, row):
+#         ans = 1
+#         ansRow = [1] #inserting the 1st element
         
-        #calculate the rest of the elements:
-        for col in range(1, row):
-            ans *= (row - col)
-            ans //= col
-            ansRow.append(ans)
-        return ansRow
+#         #calculate the rest of the elements:
+#         for col in range(1, row):
+#             ans *= (row - col)
+#             ans //= col
+#             ansRow.append(ans)
+#         return ansRow
 
-    def generate(self, numRows: int) -> List[List[int]]:
-        ans = []
+#     def generate(self, numRows: int) -> List[List[int]]:
+#         ans = []
     
-        #store the entire pascal's triangle:
-        for row in range(1, numRows+1):
-            ans.append(self.generateRow(row))
-        return ans
+#         #store the entire pascal's triangle:
+#         for row in range(1, numRows+1):
+#             ans.append(self.generateRow(row))
+#         return ans
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        if numRows == 0:
+            return []
+        if numRows == 1:
+            return [[1]]
+
+        prev_rows = self.generate(numRows - 1)
+        prev_row = prev_rows[-1]
+        current_row = [1]
+
+        for i in range(1, numRows - 1):
+            current_row.append(prev_row[i - 1] + prev_row[i])
+
+        current_row.append(1)
+        prev_rows.append(current_row)
+
+        return prev_rows
