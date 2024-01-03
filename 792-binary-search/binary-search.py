@@ -12,16 +12,16 @@ class Solution:
             self.recursive_bin_search(arr, target, high, mid+1)
 
     def search(self, nums: List[int], target: int) -> int:
-        # start , end = 0, len(nums)-1
-        # while start<=end:
-        #     mid = (start + end) //2
-        #     if nums[mid] == target:
-        #         return mid
-        #     elif nums[mid] > target:
-        #         end = mid -1
-        #     elif nums[mid] < target:
+        start , end = 0, len(nums)-1
+        while start<=end:
+            mid = (start + end) //2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] > target:
+                end = mid -1
+            elif nums[mid] < target:
                 
-        #         start= mid+1
-        # return -1
+                start= mid+1
+        return -1
         #return (self.recursive_bin_search(nums, target, len(nums)-1, 0))
-        return nums.index(target) if target in nums else -1
+        
