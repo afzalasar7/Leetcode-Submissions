@@ -1,21 +1,17 @@
-#from collection import Counter
 class Solution:
     def longestPalindrome(self, s: str) -> int:
         counter = {}
+        has_odd_char = False
+        ans = 0
         for i in s:
-            counter[i] = counter.get(i,0) +1
+            counter[i] = counter.get(i, 0) +1
 
-        maxi_palindrome=0 
-        has_single_char = False
-
-        for value in counter.values():
-            if value%2==0:
-                maxi_palindrome +=value
+        for v in counter.values():
+            if v % 2 == 0:
+                ans += v
             else:
-                maxi_palindrome += value-1
-                has_single_char = True
-        
-        if has_single_char:
-            maxi_palindrome +=1
+                ans += v-1
+                has_odd_char = True
+        return ans+1 if has_odd_char else ans
 
-        return maxi_palindrome
+
