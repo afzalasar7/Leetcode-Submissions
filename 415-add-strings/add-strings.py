@@ -9,7 +9,8 @@ class Solution:
             digit2 = ord(num2[j]) - ord("0") if j >= 0 else 0
             sumOfDigit = digit1 + digit2 + carry
             carry = sumOfDigit // 10
-            result = chr(sumOfDigit % 10 + ord("0")) + result 
+            # result = chr(sumOfDigit % 10 + ord("0")) + result
+            result = f"{sumOfDigit%10}{result}" 
             i -=1
             j -=1
         return result
