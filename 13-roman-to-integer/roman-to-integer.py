@@ -22,11 +22,21 @@ class Solution:
         "CD",
         "CM"]
         sum = 0
-        for item in doubleChar:
-            if item in s:
-                sum+=value[item]
-                s = s.replace(item, "")
-        for char in s:
-            sum+= value[char]
+        # for item in doubleChar:
+        #     if item in s:
+        #         sum+=value[item]
+        #         s = s.replace(item, "")
+        # for char in s:
+        #     sum+= value[char]
+        i=0
+        l= len(s)-1
+        while i < l:
+            if value[s[i]] < value[s[i+1]]:
+                sum-=value[s[i]]
+            else:
+                sum+= value[s[i]]
+            i+=1
+        sum+=value[s[-1]]
+
         return sum
         
