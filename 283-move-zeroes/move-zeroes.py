@@ -12,15 +12,8 @@
 
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-        index = 0
-
-        # Place non-zero elements at the start of the list
-        for num in nums:
-            if num != 0:
-                nums[index] = num
-                index += 1
-
-        # Fill the remaining positions with zeroes
-        while index < len(nums):
-            nums[index] = 0
-            index += 1
+        j = 0  # Pointer for non-zero elements
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[i], nums[j] = nums[j], nums[i]  # Swap non-zero element with element at j
+                j += 1  # Increment j to point to the next position for non-zero element
